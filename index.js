@@ -16,3 +16,16 @@ async function getWallpaper() {
 
 getWallpaper()
 
+
+async function getCoinData() {
+    try {
+        const res = await fetch("https://api.coingecko.com/api/v3/coins/bitcoin")
+        const data = await res.json()
+        document.getElementById("coin").innerHTML = `<img src="${data.image.small}" alt="bitcoin-image" class="coin-image"> <span>${data.name}</span>`
+        console.log(data)
+    } catch(err) {
+        console.log( err)
+    }
+}
+
+getCoinData()
