@@ -13,18 +13,22 @@
                 <p class="coin" id="coin"></p>
                 <div class="coin-data" id="coin-data">
                     <iconify-icon icon="akar-icons:statistic-up" class="up-icon"></iconify-icon>
-                    <p class="price-high" id="price-high">dsada</p>
+                    <p class="price-high" id="price-high"></p>
+                </div>
+                <div class="coin-data" id="coin-data">
+                    <iconify-icon icon="akar-icons:statistic-down" class="down-icon"></iconify-icon>
+                    <p class="price-low" id="price-low"></p>
                 </div>
             </div>
             <p>Weather</p>
         </div>
 
-        <h1 class="time">TIME HERE</h1>
+        <div id="clock" class="clock">00:00 AM</div>
 
         <p class="author" id="author"></p>
     </main>
-
-
+    
+<script>setInterval(() => clock.textContent = new Date().toLocaleTimeString(), 1000);</script>
 <script src="index.js"></script>
 </body>
 </html>

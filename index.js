@@ -22,6 +22,9 @@ async function getCoinData() {
         const res = await fetch("https://api.coingecko.com/api/v3/coins/bitcoin")
         const data = await res.json()
         document.getElementById("coin").innerHTML = `<img src="${data.image.small}" alt="bitcoin-image" class="coin-image"> <span>${data.name}</span>`
+        document.getElementById('price-high').innerHTML = `$${data.market_data.high_24h.usd}`
+        document.getElementById('price-low').innerHTML = `$${data.market_data.low_24h.usd}`
+
         console.log(data)
     } catch(err) {
         console.log( err)
