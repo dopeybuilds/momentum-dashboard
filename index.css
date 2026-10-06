@@ -57,18 +57,19 @@ div#weather {
 }
 
 div#weather > img {
-    width: 70px;
+    width: 105px;
 }
 
 p.weather-city {
     width: 100%;
     text-align: right;
     margin: 0;
-    margin-top: -10px;
+    margin-top: -30px;
+    font-size: 1.5rem;
 }
 
 p.weather-temp {
     margin: 0;
-    font-size: 2rem;
-    margin-left: -10px;
+    font-size: 3rem;
+    margin-left: -15px;
 }
