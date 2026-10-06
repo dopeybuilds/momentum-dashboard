@@ -32,3 +32,32 @@ async function getCoinData() {
 }
 
 getCoinData()
+
+function getLocation() {
+    return new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(resolve, reject)
+    })
+}
+
+async function showLocation() {
+    try {
+        const position = await getLocation()
+        const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=546c3d59e5cabfbbe2fddb332724126b`)
+        if (!res.ok) {
+            throw Error(`Weather data not available (${res.status})`)
+        }
+        const data = await res.json()
+        const iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+        document.getElementById("weather").innerHTML = `
+                <img src=${iconUrl} />
+                <p class="weather-temp">${Math.round(data.main.temp)}º</p>
+                <p class="weather-city">${data.name}</p>
+            `
+            
+        console.log(data)
+    } catch(err) {
+        console.log(err)
+    }
+}
+
+showLocation()
