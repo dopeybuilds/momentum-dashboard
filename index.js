@@ -42,7 +42,7 @@ function getLocation() {
 async function showLocation() {
     try {
         const position = await getLocation()
-        const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=546c3d59e5cabfbbe2fddb332724126b`)
+        const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid={APIKEY}`)
         if (!res.ok) {
             throw Error(`Weather data not available (${res.status})`)
         }
